@@ -1,14 +1,14 @@
-import org.junit.jupiter.api.BeforeEach;
+import model.User;
 import org.testng.annotations.Test;
 
 import java.util.regex.Pattern;
 
 import static org.testng.AssertJUnit.*;
 
-public class PersonTest {
+public class UserTest {
 
-    Person henk = new Person("Deze naam is langer dan 32 karakters!!!!!!", "henk@henk.nl");
-    Person piet = new Person("Piet", "Piet");
+    User henk = new User("Deze naam is langer dan 32 karakters!!!!!!", "henk@henk.nl");
+    User piet = new User("Piet", "Piet");
     String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
             "[a-zA-Z0-9_+&*-]+)*@" +
             "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
