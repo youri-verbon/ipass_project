@@ -44,11 +44,12 @@ function fetchAssignTask(){
     const valueTask = task.options[task.selectedIndex].value;
     console.log(valueUser);
     console.log(valueTask);
+    let taskJson = `{"name":"${valueTask}"}`
     // const task = document.querySelector("#selectTask").value;
 
     fetch("http://localhost:8080/restservices/users/"+valueUser, {
         method: "PATCH",
-        body: valueTask,
+        body: taskJson,
         headers: {'Content-Type': 'application/json'}
     })
         .then(response => response.json())
@@ -56,4 +57,30 @@ function fetchAssignTask(){
             console.log(myJson)
         })
 }
-// document.querySelector("#submitNewTask").addEventListener("click", fetchAssignTask());
+
+async function fetchGetAllAssignedTasks(){
+    await fetch('http://localhost:8080/restservices/users/allUserTasks', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+        .then(async response => await response.json())
+        .then(function (myJson){
+            for(const [key, value] of Object.entries(myJson)){
+                const dashboard = document.getElementById("task-dashboard");
+                if(value.length > 0){
+                    console.log(key, value);
+                    const user = document.createElement('h1');
+                    user.textContent = key;
+                    dashboard.appendChild(user);
+                    value.forEach(element =>{
+                            const val = document.createElement('h2');
+                            val.textContent = element.name;
+                            dashboard.appendChild(val)
+                        }
+                    );
+                }
+            }
+            });
+}

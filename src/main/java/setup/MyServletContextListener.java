@@ -16,7 +16,9 @@ import java.util.Date;
 public class MyServletContextListener implements ServletContextListener{
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        new User("Henk", "henk@henk.nl");
+        User henk = new User("Henk", "henk@henk.nl");
+        henk.setPassword("wachtwoord");
+        henk.setRole("admin");
         new User("Piet", "Piet@piet.nl");
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
