@@ -29,3 +29,12 @@ label{
     grid-column: 2;
     grid-row: 4;
 }
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+.container > div{
+    background: grey;
+    padding: 1em;
+}

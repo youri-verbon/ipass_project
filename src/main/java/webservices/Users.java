@@ -9,6 +9,7 @@ import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
 import java.util.*;
 
 import static com.azure.storage.blob.implementation.models.QueryFormatType.JSON;
@@ -41,7 +42,7 @@ public class Users {
     @GET
     @Path("/allUserTasks")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllUserTasks(){
+    public Response getAllUserTasks()throws IOException {
         Map<String, List> map = new HashMap<>();
         for (User user : User.getUsers()){
             map.put(user.getName(), user.getAssignedTasks());

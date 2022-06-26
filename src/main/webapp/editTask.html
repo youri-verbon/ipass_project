@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <title>Title</title>
+</head>
+<body>
+<main>
+  <form id="PATCHTask">
+    <label for="selectTask">Select task: <select id="selectTask" onchange="getTaskDetails()"></select></label>
+    <label for="taskName"><input id="taskName" disabled></label>
+    <label for="taskDescription"><input id="taskDescription" disabled></label>
+    <label for="taskDate"><input type="date" id="taskDate" disabled></label>
+    <input id="submitTask" class="submitTask" type="button" value="Send" onclick="patchTask()" disabled/>
+  </form>
+</main>
+<script type="text/javascript" src="scripts/index.js"></script>
+<script>
+  fetchTasks();
+</script>
+</body>
+</html>

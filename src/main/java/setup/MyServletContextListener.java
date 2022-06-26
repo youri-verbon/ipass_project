@@ -21,9 +21,10 @@ public class MyServletContextListener implements ServletContextListener{
         henk.setRole("admin");
         new User("Piet", "Piet@piet.nl");
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         String str = formatter.format(date);
-        new Task("Badkamer", "De badkamer moet je schoonmaken met chloor", str);
+        Task badkamer = new Task("Badkamer", "De badkamer moet je schoonmaken met chloor", str);
+        henk.setAssignedTasks(badkamer);
         new Task("Keuken", "De keuken moet je schoonmaken met allesreiniger", str);
     }
 
